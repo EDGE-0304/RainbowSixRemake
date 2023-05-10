@@ -1,0 +1,32 @@
+{
+
+
+
+  "item.testmod.pig_spawner": "Pig Spawner",
+  "item.testmod.villager_spawner": "Villager Spawner",
+  "item.testmod.wolf_spawner": "Wolf Spawner",
+  "item.testmod.chicken_spawner": "Chicken Spawner",
+  "item.testmod.cat_spawner": "Cat Spawner",
+  "item.testmod.horse_spawner": "Horse Spawner",
+  "item.testmod.rabbit_spawner": "Rabbit Spawner",
+  "item.testmod.turtle_spawner": "Turtle Spawner",
+  "item.testmod.fox_spawner": "Fox Spawner",
+  "item.testmod.bat_spawner": "Bat Spawner",
+
+
+
+  "block.testmod.test_block": "Test Block",
+  "block.testmod.chicken_block": "Chicken Block",
+  "block.testmod.cat_block": "Cat Block",
+  "block.testmod.wolf_block": "Wolf Block",
+  "block.testmod.horsespawner_block": "Horse Block",
+  "block.testmod.pigspawner_block": "Pig Block",
+  "block.testmod.villager_block": "Villager Block",
+  "block.testmod.turtle_block": "Turtle Block",
+  "block.testmod.rabbit_block": "Rabbit Block",
+  "block.testmod.fox_block": "Fox Block",
+  "block.testmod.bat_block": "Bat Block",
+  
+  "creativemodetab.mc_spawner_tab": "MC SPAWNER"
+
+}

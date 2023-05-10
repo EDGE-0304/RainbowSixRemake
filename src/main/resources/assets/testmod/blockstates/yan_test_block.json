@@ -1,0 +1,5 @@
+{
+	"variants": {
+		"" : { "model" : "testmod:block/yan_test_block"}
+	}
+}
