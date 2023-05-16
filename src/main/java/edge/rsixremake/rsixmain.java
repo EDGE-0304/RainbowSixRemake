@@ -1,4 +1,4 @@
-package com.example.examplemod;
+package edge.rsixremake;
 
 import com.mojang.logging.LogUtils;
 import net.minecraft.client.Minecraft;
@@ -30,7 +30,7 @@ public class rsixmain
 {
     
     public static final String MODID = "rsixmain";
-    // Directly reference a slf4j logger
+    
     private static final Logger LOGGER = LogUtils.getLogger();
     // Create a Deferred Register to hold Blocks which will all be registered under the "examplemod" namespace
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, MODID);
