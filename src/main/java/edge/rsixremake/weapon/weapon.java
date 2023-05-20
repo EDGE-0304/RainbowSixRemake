@@ -19,6 +19,12 @@ public class weapon extends Item {
 	
 	//add items here
 	
+	public static RegistryObject<Item> PISTOL = ITEMS.register("pistol",() -> {
+		return new pistol(new Properties());}
+	);
+	
+	
+	
 	public static void register(IEventBus eventBus) {
 		ITEMS.register(eventBus);
 	}

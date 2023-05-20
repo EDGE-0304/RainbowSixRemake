@@ -41,14 +41,13 @@ public class rsixmain
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
         
-
-        
         // Register the Deferred Register to the mod event bus so items get registered
         weapon.ITEMS.register(modEventBus);
-
-        
         MinecraftForge.EVENT_BUS.register(this);
-        modEventBus.addListener(this::addCreative);
+        //modEventBus.addListener(this::addCreative);
     }
+    
+}
+
 
 
