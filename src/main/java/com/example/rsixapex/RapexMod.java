@@ -54,8 +54,10 @@ public class RapexMod
 
     private void addCreative(CreativeModeTabEvent.BuildContents event)
     {
-        if (event.getTab() == CreativeModeTabs.COMBAT)
+        if (event.getTab() == CreativeModeTabs.COMBAT) {
             event.accept(ModItems.TEST_GUN);
+            event.accept(ModItems.BULLET);
+            }
     }
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call

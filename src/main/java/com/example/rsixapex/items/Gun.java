@@ -1,5 +1,7 @@
 package com.example.rsixapex.items;
 
+import com.example.rsixapex.entity.ModEntityType;
+
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
@@ -8,7 +10,10 @@ import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.UseAnim;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.item.BowItem;
+import net.minecraft.world.item.CrossbowItem;
 
 public class Gun extends Item {
 	   public Gun(Item.Properties p) {
@@ -19,7 +24,7 @@ public class Gun extends Item {
 	      ItemStack itemstack = player.getItemInHand(holdHand);
 	      level.playSound((Player)null, player.getX(), player.getY(), player.getZ(), SoundEvents.SNOWBALL_THROW, SoundSource.NEUTRAL, 0.5F, 0.4F / (level.getRandom().nextFloat() * 0.4F + 0.8F));
 	      if (!level.isClientSide) {
-	         Bullet bullet= new Bullet(level, player);
+	         Bullet bullet= new Bullet(ModEntityType.BULLET.get(), level);
 //	         bullet.setItem(itemstack);
 	         bullet.shootFromRotation(player, player.getXRot(), player.getYRot(), 0.0F, 1.5F, 1.0F);
 	         level.addFreshEntity(bullet);
@@ -31,5 +36,9 @@ public class Gun extends Item {
 	      }
 
 	      return InteractionResultHolder.sidedSuccess(itemstack, level.isClientSide());
+	   }
+	   
+	   public UseAnim getUseAnimation(ItemStack p_40678_) {
+		   return UseAnim.NONE;
 	   }
 }

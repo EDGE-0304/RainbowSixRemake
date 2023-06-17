@@ -18,6 +18,9 @@ public class ModItems
 	public static final RegistryObject<Item> TEST_GUN = ITEMS.register(
 			"test_gun", () -> new Gun(new Item.Properties()));
 	
+	public static final RegistryObject<Item> BULLET = ITEMS.register(
+			"bullet", () -> new BulletItem(new Item.Properties()));
+	
     public static void register(IEventBus eventBus) {
 		ITEMS.register(eventBus);
 	}
