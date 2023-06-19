@@ -19,7 +19,7 @@ public class ModItems
 			"test_gun", () -> new Gun(new Item.Properties()));
 	
 	public static final RegistryObject<Item> BULLET = ITEMS.register(
-			"bullet", () -> new BulletItem(new Item.Properties()));
+			"bullet", () -> new BulletItem((new Item.Properties()).stacksTo(16)) );
 	
     public static void register(IEventBus eventBus) {
 		ITEMS.register(eventBus);
