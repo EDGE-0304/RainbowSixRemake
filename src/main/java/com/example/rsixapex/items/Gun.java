@@ -17,6 +17,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.AbstractArrow;
 import net.minecraft.world.entity.projectile.FireworkRocketEntity;
 import net.minecraft.world.entity.projectile.Projectile;
+import net.minecraft.world.entity.projectile.Snowball;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
@@ -50,7 +51,8 @@ public class Gun extends Item {
 //			   ,ItemStack itemStack1, ItemStack itemStack2, float p_40900_, boolean p_40901_, float p_40902_, float p_40903_, float p_40904_
 			   ) {
 	      if (!level.isClientSide) {
-	         Projectile bullet = new BulletEntity(ModEntityType.BULLET.get(), level);
+//	         Projectile bullet = new BulletEntity(ModEntityType.BULLET.get(), level);
+	         Projectile bullet = new Snowball(level, livingEntity);
 	         
 //            Vec3 vec31 = livingEntity.getUpVector(1.0F);
 //            Quaternionf quaternionf = (new Quaternionf()).setAngleAxis((double)(p_40904_ * ((float)Math.PI / 180F)), vec31.x, vec31.y, vec31.z);
