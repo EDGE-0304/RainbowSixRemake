@@ -75,8 +75,9 @@ public class Bullet extends ThrowableItemProjectile {
 				BlockPos blockpos = hitResult.getBlockPos().relative(hitResult.getDirection());
 				if (this.level.isEmptyBlock(blockpos)) {
 					PrimedTnt tnt = new PrimedTnt(this.level, (double)blockpos.getX() + 0.5D, (double)blockpos.getY(), (double)blockpos.getZ() + 0.5D, (LivingEntity) shooter);
-					
-					this.level.addFreshEntity(tnt);
+//					
+//					this.level.addFreshEntity(tnt);
+				    this.level.explode(this, this.getX() + 0.5D, this.getY(), this.getZ() + 0.5D, 4.0F, Level.ExplosionInteraction.TNT);
 				}
 			}
 		
