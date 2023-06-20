@@ -2,6 +2,7 @@ package com.example.rsixapex.items;
 
 import com.example.rsixapex.entity.ModEntityType;
 
+import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ItemParticleOption;
 import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.core.particles.ParticleTypes;
@@ -9,6 +10,8 @@ import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.Mob;
+import net.minecraft.world.entity.item.PrimedTnt;
 import net.minecraft.world.entity.monster.Blaze;
 import net.minecraft.world.entity.projectile.AbstractArrow;
 import net.minecraft.world.entity.projectile.Fireball;
@@ -20,9 +23,11 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.EntityHitResult;
 import net.minecraft.world.phys.HitResult;
 import net.minecraftforge.registries.RegistryObject;
+import net.minecraft.world.item.FlintAndSteelItem;
 
 public class Bullet extends ThrowableItemProjectile {  
 	
@@ -60,6 +65,22 @@ public class Bullet extends ThrowableItemProjectile {
 		Entity entity = hitResult.getEntity();
 		int i = entity instanceof Blaze ? 3 : 0;
 		entity.hurt(DamageSource.thrown(this, this.getOwner()), (float)i);
+	}
+	
+	protected void onHitBlock(BlockHitResult hitResult) {
+		super.onHitBlock(hitResult);
+		if (!this.level.isClientSide) {
+			Entity shooter = this.getOwner();
+			if (!(shooter instanceof Mob) || net.minecraftforge.event.ForgeEventFactory.getMobGriefingEvent(this.level, shooter)) {
+				BlockPos blockpos = hitResult.getBlockPos().relative(hitResult.getDirection());
+				if (this.level.isEmptyBlock(blockpos)) {
+					PrimedTnt tnt = new PrimedTnt(this.level, (double)blockpos.getX() + 0.5D, (double)blockpos.getY(), (double)blockpos.getZ() + 0.5D, (LivingEntity) shooter);
+					
+					this.level.addFreshEntity(tnt);
+				}
+			}
+		
+		}
 	}
 
 	protected void onHit(HitResult hitResult) {
