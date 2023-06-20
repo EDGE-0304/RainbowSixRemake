@@ -1,8 +1,11 @@
 package com.example.rsixapex;
 
+import com.example.rsixapex.entity.ModEntityType;
 import com.example.rsixapex.items.ModItems;
 import com.mojang.logging.LogUtils;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.entity.EntityRenderers;
+import net.minecraft.client.renderer.entity.ThrownItemRenderer;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.Item;
@@ -41,6 +44,7 @@ public class RapexMod
         // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);
         ModItems.register(modEventBus);
+        ModEntityType.register(modEventBus);
         
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
@@ -54,8 +58,10 @@ public class RapexMod
 
     private void addCreative(CreativeModeTabEvent.BuildContents event)
     {
-        if (event.getTab() == CreativeModeTabs.COMBAT)
+        if (event.getTab() == CreativeModeTabs.COMBAT) {
             event.accept(ModItems.TEST_GUN);
+            event.accept(ModItems.BULLET);
+            }
     }
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call
@@ -76,6 +82,9 @@ public class RapexMod
             // Some client setup code
             LOGGER.info("HELLO FROM CLIENT SETUP");
             LOGGER.info("MINECRAFT NAME >> {}", Minecraft.getInstance().getUser().getName());
+            
+            EntityRenderers.register(ModEntityType.BULLET.get(), ThrownItemRenderer::new);
         }
     }
+    
 }
