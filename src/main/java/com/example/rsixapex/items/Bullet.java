@@ -30,8 +30,8 @@ public class Bullet extends ThrowableItemProjectile {
 	      super(p_37391_, p_37392_);
 	}
 	
-	public Bullet(Level p_37399_, LivingEntity p_37400_) {
-		super(ModEntityType.BULLET.get(), p_37400_, p_37399_);
+	public Bullet(Level level, LivingEntity player) {
+		super(ModEntityType.BULLET.get(), player, level);
 	}
 
 	public Bullet(Level p_37394_, double p_37395_, double p_37396_, double p_37397_) {
@@ -43,7 +43,7 @@ public class Bullet extends ThrowableItemProjectile {
 	}
 
 	private ParticleOptions getParticle() {
-		return (ParticleOptions)(ParticleTypes.ITEM_SNOWBALL );
+		return (ParticleOptions)(ParticleTypes.FIREWORK );
 	}
 
 	public void handleEntityEvent(byte p_37402_) {
@@ -68,6 +68,14 @@ public class Bullet extends ThrowableItemProjectile {
 			this.level.broadcastEntityEvent(this, (byte)3);
 			this.discard();
 		}
+	}
+	
+	public boolean isPickable() {
+		return false;
+	}
+	
+	public boolean hurt(DamageSource source, float idkwtfthisis) {
+		return false;
 	}
 
 }
