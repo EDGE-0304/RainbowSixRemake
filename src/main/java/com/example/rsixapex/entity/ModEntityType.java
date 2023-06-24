@@ -27,10 +27,10 @@ public class ModEntityType{
     				.build(new ResourceLocation(RapexMod.MODID, "bullet").toString()) );
     
     public static final RegistryObject<EntityType<Arrow>> DETECT_ARROW = 
-    		ENTITY_TYPES.register("arrow", 
+    		ENTITY_TYPES.register("detect_arrow", 
     				() -> EntityType.Builder.<Arrow>of(Arrow::new, MobCategory.MISC)
     				.sized(0.25F, 0.25F).clientTrackingRange(4).updateInterval(10)
-    				.build(new ResourceLocation(RapexMod.MODID, "bullet").toString()) );
+    				.build(new ResourceLocation(RapexMod.MODID, "detect_arrow").toString()) );
     
     public static void register(IEventBus eventBus) {
         ENTITY_TYPES.register(eventBus);
