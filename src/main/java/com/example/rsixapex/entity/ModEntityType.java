@@ -7,6 +7,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
+import net.minecraft.world.entity.projectile.Arrow;
 import net.minecraft.world.entity.projectile.Snowball;
 import net.minecraft.world.flag.FeatureElement;
 import net.minecraft.world.level.entity.EntityTypeTest;
@@ -24,6 +25,10 @@ public class ModEntityType{
     				() -> EntityType.Builder.<Bullet>of(Bullet::new, MobCategory.MISC)
     				.sized(0.25F, 0.25F).clientTrackingRange(4).updateInterval(10)
     				.build(new ResourceLocation(RapexMod.MODID, "bullet").toString()) );
+    
+    public static final RegistryObject<EntityType<Arrow>> DETECT_ARROW = 
+    		ENTITY_TYPES.register("detect_arrow", 
+    				() -> 
 
 
     public static void register(IEventBus eventBus) {
