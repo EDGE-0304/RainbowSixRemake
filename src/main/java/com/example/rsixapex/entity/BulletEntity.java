@@ -16,12 +16,12 @@ import net.minecraft.world.level.Level;
 public class BulletEntity extends AbstractHurtingProjectile implements ItemSupplier {
 	   private static final EntityDataAccessor<ItemStack> DATA_ITEM_STACK = SynchedEntityData.defineId(BulletEntity.class, EntityDataSerializers.ITEM_STACK);
 
-	   public BulletEntity(EntityType<? extends BulletEntity> p_37006_, Level p_37007_) {
-	      super(p_37006_, p_37007_);
+	   public BulletEntity(EntityType<?> p_37006_, Level p_37007_) {
+	      super((EntityType<? extends AbstractHurtingProjectile>) p_37006_, p_37007_);
 	   }
 
-	   public BulletEntity(EntityType<? extends BulletEntity> p_36990_, double p_36991_, double p_36992_, double p_36993_, double p_36994_, double p_36995_, double p_36996_, Level p_36997_) {
-	      super(p_36990_, p_36991_, p_36992_, p_36993_, p_36994_, p_36995_, p_36996_, p_36997_);
+	   public BulletEntity(EntityType<?> p_36990_, double p_36991_, double p_36992_, double p_36993_, double p_36994_, double p_36995_, double p_36996_, Level p_36997_) {
+	      super((EntityType<? extends AbstractHurtingProjectile>) p_36990_, p_36991_, p_36992_, p_36993_, p_36994_, p_36995_, p_36996_, p_36997_);
 	   }
 
 	   public BulletEntity(EntityType<? extends BulletEntity> p_36999_, LivingEntity p_37000_, double p_37001_, double p_37002_, double p_37003_, Level p_37004_) {

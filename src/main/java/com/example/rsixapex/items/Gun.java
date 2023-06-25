@@ -40,17 +40,13 @@ public class Gun extends Item {
 	   
 	   private static void shootProjectile(Level level, LivingEntity livingEntity, InteractionHand interactionHand) {
 	      if (!level.isClientSide) {
-//	         Projectile bullet = new BulletEntity(ModEntityType.BULLET.get(), level);
 	         Projectile bullet = new Bullet(level, livingEntity);
-//	    	 Projectile bullet = new Snowball(level, livingEntity);
 	         
-	         
-	        bullet.shootFromRotation(livingEntity, livingEntity.getXRot(), livingEntity.getYRot(), 0.0F, 1.5F, 1.0F);
+	         bullet.shootFromRotation(livingEntity, livingEntity.getXRot(), livingEntity.getYRot(), 0.0F, 1.5F, 1.0F);
      
 	         level.addFreshEntity(bullet);
 	         level.playSound((Player)null, livingEntity.getX(), livingEntity.getY(), livingEntity.getZ(), SoundEvents.SNOWBALL_THROW, SoundSource.NEUTRAL, 0.5F, 0.4F / (level.getRandom().nextFloat() * 0.4F + 0.8F));
-//		         level.playSound((Player)null, livingEntity.getX(), livingEntity.getY(), livingEntity.getZ(), SoundEvents.CROSSBOW_SHOOT, SoundSource.PLAYERS, 1.0F, p_40900_);
-	      }
+		  }
 	   }
 	   
 	   public UseAnim getUseAnimation(ItemStack p_40678_) {
