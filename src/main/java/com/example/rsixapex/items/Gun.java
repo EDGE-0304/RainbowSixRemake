@@ -32,11 +32,11 @@ public class Gun extends Item {
 	      super(p);
 	   }
 
-	   public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand holdHand) {
-	      ItemStack itemstack = player.getItemInHand(holdHand);
-	      shootProjectile(level, player, holdHand);
-	      return InteractionResultHolder.consume(itemstack);
-	   }
+//	   public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand holdHand) {
+//	      ItemStack itemstack = player.getItemInHand(holdHand);
+//	      shootProjectile(level, player, holdHand);
+//	      return InteractionResultHolder.consume(itemstack);
+//	   }
 	   
 	   private static void shootProjectile(Level level, LivingEntity livingEntity, InteractionHand interactionHand) {
 	      if (!level.isClientSide) {

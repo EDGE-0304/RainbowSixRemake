@@ -1,5 +1,6 @@
 package com.example.rsixapex;
 
+import com.example.rsixapex.client.ClientHandler;
 import com.example.rsixapex.entity.ModEntityType;
 import com.example.rsixapex.items.ModItems;
 import com.mojang.logging.LogUtils;
@@ -41,15 +42,13 @@ public class RapexMod
     {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
-        // Register the commonSetup method for modloading
-        modEventBus.addListener(this::commonSetup);
         ModItems.register(modEventBus);
         ModEntityType.register(modEventBus);
         
-        // Register ourselves for server and other game events we are interested in
-        MinecraftForge.EVENT_BUS.register(this);
-        // Register the item to a creative tab
+        modEventBus.addListener(this::commonSetup);
+        modEventBus.addListener(this::clientSetup);
         modEventBus.addListener(this::addCreative);
+        MinecraftForge.EVENT_BUS.register(this);
     }
 
     private void commonSetup(final FMLCommonSetupEvent event)
@@ -85,6 +84,10 @@ public class RapexMod
             
             EntityRenderers.register(ModEntityType.BULLET.get(), ThrownItemRenderer::new);
         }
+    }
+    
+    private void clientSetup(FMLClientSetupEvent event) {
+    	event.enqueueWork(ClientHandler::setup);
     }
     
 }
