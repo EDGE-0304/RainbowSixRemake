@@ -2,7 +2,6 @@ package com.example.rsixapex.event;
 
 import com.example.rsixapex.entity.BulletEntity;
 import com.example.rsixapex.entity.ModEntityType;
-import com.example.rsixapex.entity.ProjectileEntity;
 import com.example.rsixapex.items.Gun;
 
 import net.minecraft.client.Minecraft;
@@ -105,7 +104,7 @@ public class ShootHandler {
 			System.out.println("handling shooting holding a gun2");
 			
 			player.setYRot(Mth.wrapDegrees(rotationYaw));
-			player.setXRot(Mth.clamp(rotationPit, 0F, 0F));
+			player.setXRot(Mth.clamp(rotationPit, -90F, 90F));
 			
 //			ProjectileEntity bullet = new ProjectileEntity(ModEntityType.BULLET.get(), world);
 			BulletEntity bullet = new BulletEntity(EntityType.SMALL_FIREBALL, world);
