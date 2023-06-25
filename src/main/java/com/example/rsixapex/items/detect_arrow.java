@@ -25,7 +25,21 @@ import net.minecraft.world.phys.HitResult;
 import net.minecraftforge.registries.RegistryObject;
 
 
-public class detect_arrow {
+public class detect_arrow extends ThrowableItemProjectile {
+
+	public detect_arrow(EntityType<? extends ThrowableItemProjectile> p_37432_, double p_37433_, double p_37434_,
+			double p_37435_, Level p_37436_) {
+		super(p_37432_, p_37433_, p_37434_, p_37435_, p_37436_);
+		// TODO Auto-generated constructor stub
+	}
+
+	@Override
+	protected Item getDefaultItem() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	
 	
 	
 
